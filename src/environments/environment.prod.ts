@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'http://www.wazzaby.com',
+  ignoreAuth: true
 };
