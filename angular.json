@@ -22,13 +22,9 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "optimization": false,
             "outputHashing": "all",
             "sourceMap": true,
-            "namedChunks": false,
-            "extractLicenses": true,
-            "vendorChunk": false,
             "buildOptimizer": false,
             "budgets": [
               {
@@ -73,7 +69,8 @@
               "buildOptimizer": true,
               "optimization": true
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
