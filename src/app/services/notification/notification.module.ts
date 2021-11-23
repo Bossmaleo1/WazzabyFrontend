@@ -14,7 +14,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   ]
 })
 export class NotificationModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<NotificationModule> {
     return {
       ngModule: NotificationModule,
       providers: [
