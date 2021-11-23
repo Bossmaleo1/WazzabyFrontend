@@ -12,7 +12,18 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "wazzaby",
+      "i18n": {
+        "locales": {
+          "en": "src/locale/messages.en.xlf",
+          "fr": "src/locale/messages.fr.xlf",
+          "de": "src/locale/messages.de.xlf",
+          "es": "src/locale/messages.es.xlf",
+          "por": "src/locale/messages.por.xlf",
+          "ru": "src/locale/messages.ru.xlf"
+        },
+        "sourceLocale": "en-US"
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -55,9 +66,104 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.dev.ts"
                 }
-              ]
+              ],
+              "sourceMap": false,
+              "buildOptimizer": true,
+              "optimization": true,
+              "i18nMissingTranslation": "warning",
+              "localize": true
             },
-
+            "es": {
+              "budgets": [
+                {
+                  "type":"anyComponentStyle",
+                  "maximumWarning":"6kb"
+                }
+              ],
+              "localize": [
+                "es"
+              ],
+              "outputPath": "dist/",
+              "i18nMissingTranslation": "warning"
+            },
+            "en": {
+              "budgets": [
+                {
+                  "type":"anyComponentStyle",
+                  "maximumWarning":"6kb"
+                }
+              ],
+              "localize": [
+                "en"
+              ],
+              "outputPath": "dist/",
+              "i18nMissingTranslation": "warning"
+            },
+            "de": {
+              "budgets": [
+                {
+                  "type":"anyComponentStyle",
+                  "maximumWarning":"6kb"
+                }
+              ],
+              "localize": [
+                "de"
+              ],
+              "outputPath": "dist/",
+              "i18nMissingTranslation": "warning"
+            },
+            "fr": {
+              "budgets": [
+                {
+                  "type":"anyComponentStyle",
+                  "maximumWarning":"6kb"
+                }
+              ],
+              "localize": [
+                "fr"
+              ],
+              "outputPath": "dist/",
+              "i18nMissingTranslation": "warning"
+            },
+            "en": {
+              "budgets": [
+                {
+                  "type":"anyComponentStyle",
+                  "maximumWarning":"6kb"
+                }
+              ],
+              "localize": [
+                "en"
+              ],
+              "outputPath": "dist/",
+              "i18nMissingTranslation": "warning"
+            },
+            "por": {
+              "budgets": [
+                {
+                  "type":"anyComponentStyle",
+                  "maximumWarning":"6kb"
+                }
+              ],
+              "localize": [
+                "por"
+              ],
+              "outputPath": "dist/",
+              "i18nMissingTranslation": "warning"
+            },
+            "ru": {
+              "budgets": [
+                {
+                  "type":"anyComponentStyle",
+                  "maximumWarning":"6kb"
+                }
+              ],
+              "localize": [
+                "ru"
+              ],
+              "outputPath": "dist/",
+              "i18nMissingTranslation": "warning"
+            },
             "prod": {
               "fileReplacements": [
                 {
@@ -67,7 +173,9 @@
               ],
               "sourceMap": false,
               "buildOptimizer": true,
-              "optimization": true
+              "optimization": true,
+              "i18nMissingTranslation": "warning",
+              "localize": true
             }
           },
           "defaultConfiguration": ""
@@ -80,6 +188,12 @@
           "configurations": {
             "dev": {
               "browserTarget": "wazzabysama:build:dev"
+            },
+            "en": {
+              "browserTarget": "wazzabysama:build:en"
+            },
+            "es": {
+              "browserTarget": "wazzabysama:build:es"
             },
             "prod": {
               "browserTarget": "wazzabysama:build:prod"
@@ -107,19 +221,6 @@
               "src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {

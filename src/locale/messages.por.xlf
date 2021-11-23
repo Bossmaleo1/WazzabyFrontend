@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="cdda10e73e28d307bab2f90a1f15716653f5b5e3" datatype="html">
+        <source>connexion works!</source>
+        <target>conexão funciona</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/create-new-account/LogIn/log-in.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="02621483bdc69b89d2c7bf53984eebab9a953b21" datatype="html">
+        <source>Another bossmaleo test !</source>
+        <target>outro teste bossmaleo!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/create-new-account/LogIn/log-in.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
