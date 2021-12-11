@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule, ExtraOptions} from '@angular/router';
 
-
 const routes: Routes = [
   {path: '', redirectTo: 'connexion', pathMatch: 'full'},
   {
     path: 'connexion',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'create-account',
     loadChildren: () => import('./create-new-account/create-new-account.module').then(m => m.CreateNewAccountModule)
   },
   {
@@ -15,9 +18,6 @@ const routes: Routes = [
   {path: '**', redirectTo: 'pages'}
 ];
 
-/*const config: ExtraOptions = {
-  useHash: false,
-};*/
 
 @NgModule({
   imports: [RouterModule.forRoot(routes /*, {}*/, { relativeLinkResolution: 'legacy' })],
