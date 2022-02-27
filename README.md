@@ -27,3 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Screens Size
+// smaller screens than @media only screen and (min-width: 1501px)
+// smaller screens max-width --> 1500px
+max-width --> 1200px
+max-with --> 1100px,1054px,1000px,900px,2170px, 2070px, 2000px, 1770px, 
