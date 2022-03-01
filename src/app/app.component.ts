@@ -9,6 +9,7 @@ import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Route
 })
 export class AppComponent  implements OnInit{
   title = 'MALEO-SAMA';
+  hide = true;
   constructor(
     private router: Router
   ) {}
@@ -18,14 +19,15 @@ export class AppComponent  implements OnInit{
         .subscribe(
             event => {
                   if (event instanceof NavigationStart) {
-                      //on allume la barre de progression
-                      //loadingOn
+                      //turn on the progress bar
+                      this.hide = true;
                   } else if (
                       event instanceof NavigationEnd ||
                       event instanceof NavigationError ||
                         event instanceof NavigationCancel) {
-                      //la navigation se termine par un succès
+                      //navigation ends with success
                       //loadingOff
+                      this.hide = false;
                   }
             }
         );

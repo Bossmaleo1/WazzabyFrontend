@@ -1,0 +1,22 @@
+.connexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  margin: 20px;
+}
+
+.block-connexion-card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  width: 400px;
+}
+
+.form-field-full-width {
+  width: 100%;
+  margin: auto;
+}
