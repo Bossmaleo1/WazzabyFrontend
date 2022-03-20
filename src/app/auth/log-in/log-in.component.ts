@@ -24,7 +24,7 @@ export class LogInComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  connexion() {
+  login() {
     console.log(this.form.value.email);
     console.log(this.form.value.password);
   }

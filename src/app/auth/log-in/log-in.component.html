@@ -17,7 +17,9 @@
                            autocomplete="off" [type]="hide ? 'password' : 'text'" name="password"/>
                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </mat-form-field> <br/>
-                <button mat-raised-button type='submit' color="primary" class="form-field-full-width" (click)="connexion()" >CONNEXION</button>
+                <button mat-raised-button type='submit' color="primary" class="form-field-full-width"
+                        (click)="login()"
+                        [disabled]="!form.valid">CONNEXION</button>
             </form>
     </mat-card-content>
 

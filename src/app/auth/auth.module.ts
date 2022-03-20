@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {ReactiveFormsModule} from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -27,7 +28,11 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+      /*StoreModule.forFeature(
+          'auth',
+          fromAuth.reducers, {}
+      )*/
   ]
 })
 export class AuthModule { }
