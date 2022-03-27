@@ -1,10 +1,7 @@
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Token} from '@wazzabysama/core/model/token.model';
-// @ts-ignore
-import {environment} from '@wazzabysama/environments/environment';
 import {Observable} from 'rxjs';
-import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +11,15 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<Token> {
-    return this.http.post<Token>(environment.baseUrl.concat('/api/login_check'), {username, password})
-        /*.pipe(
-            map(json => plaintT)
-        )*/;
+    return this.http.post<Token>('http://localhost:8000/api/login_check', {username, password});
+  }
+
+  getUser(userName: string, authToken: string): Observable<any> {
+    const hydra = 'hydra:member';
+    const context = '@context';
+    let headers =  new HttpHeaders();
+    headers  = headers.append('content-type', 'application/json');
+    headers  = headers.append( 'Authorization', `Bearer ${authToken}`);
+    return this.http.get<any>(`http://localhost:8000/api/users?username=${userName}`, { headers });
   }
 }
