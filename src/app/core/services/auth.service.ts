@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import {Token} from '@wazzabysama/core/model/token.model';
 import {Observable} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
   constructor(private http: HttpClient) { }
