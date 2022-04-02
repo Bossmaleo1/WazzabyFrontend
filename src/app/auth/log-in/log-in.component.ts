@@ -59,7 +59,7 @@ export class LogInComponent implements OnInit {
                         user['hydra:member'][0].firstName,
                         user['hydra:member'][0].lastName,
                         ourToken,
-                        user['hydra:member'][0].image,
+                        user['hydra:member'][0].images,
                         user['hydra:member'][0].roles,
                         user['hydra:member'][0].problematic
                     )

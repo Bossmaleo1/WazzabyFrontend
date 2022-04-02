@@ -23,7 +23,7 @@ $wazzaby-theme: mat-light-theme($wazzaby-primary, $wazzaby-accent, $wazzaby-warn
 $dark-primary: mat-palette($mat-blue,A200);
 $dark-accent:  mat-palette($mat-blue, A200, A100, A400);
 $dark-warn:    mat-palette($mat-red);
-$dark-theme: mat-light-theme($wazzaby-primary, $wazzaby-accent, $wazzaby-warn);
+$dark-theme: mat-dark-theme($wazzaby-primary, $wazzaby-accent, $wazzaby-warn);
 
 // Include the dark color styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with

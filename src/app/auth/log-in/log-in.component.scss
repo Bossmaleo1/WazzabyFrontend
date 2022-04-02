@@ -12,11 +12,15 @@
 .block-connexion-card {
   display: flex;
   flex-direction: column;
-  margin-top: 2%;
-  width: 400px;
+  justify-content: center;
+  margin-top: 5%;
 }
 
 .form-field-full-width {
   width: 100%;
   margin: auto;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }

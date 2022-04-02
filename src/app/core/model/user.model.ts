@@ -12,10 +12,8 @@ export class User {
     private _firstName: string;
     private _lastName: string;
     private _token: string;
-    private _image: [string];
+    private _images: [string];
     private _roles: [string];
-    /*@Type(() => Problematic)
-    @Expose({ name: 'problematic' })*/
     private _problematic: Problematic;
 
     constructor(
@@ -26,7 +24,7 @@ export class User {
         firstName: string,
         lastName: string,
         token: string,
-        image: [string],
+        images: [string],
         roles: [string],
         problematic: Problematic
     ) {
@@ -37,7 +35,7 @@ export class User {
         this._firstName = firstName;
         this._lastName = lastName;
         this._token = token;
-        this._image = image;
+        this._images = images;
         this._roles = roles;
         this._problematic = problematic;
     }
@@ -105,20 +103,20 @@ export class User {
         this._anonymous = value;
     }
 
-    get image(): [string] {
-        return this._image;
-    }
-
-    set image(value: [string]) {
-        this._image = value;
-    }
-
     get problematic(): Problematic {
         return this._problematic;
     }
 
     set problematic(value: Problematic) {
         this._problematic = value;
+    }
+
+    get images(): [string] {
+        return this._images;
+    }
+
+    set images(value: [string]) {
+        this._images = value;
     }
 }
 

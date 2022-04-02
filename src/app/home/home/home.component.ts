@@ -1,47 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {select, Store} from '@ngrx/store';
-import { isLoggedIn, isLoggedOut } from '@wazzabysama/auth/auth.selectors';
+import {isLoggedIn, isLoggedOut} from '@wazzabysama/auth/auth.selectors';
 import {login, logout} from '@wazzabysama/auth/auth.actions';
 import {AppState} from '@wazzabysama/reducers';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {User} from "@src/app/core/model/user.model";
+import {User} from '@wazzabysama/core/model/user.model';
+import {AuthService} from '@wazzabysama/core/services/auth.service';
 
 @Component({
-  selector: 'wazzaby-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'wazzaby-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
-  isLoggedIn$: Observable<boolean>;
-  //*ngIf="isLoggedOut$ | async"
-  isLoggedOut$: Observable<boolean>;
+    isLoggedIn$: Observable<boolean>;
+    //*ngIf="isLoggedOut$ | async"
+    isLoggedOut$: Observable<boolean>;
+    user: User;
+    firstName: string;
+    lastName: string;
 
-  constructor(
-      private router: Router,
-      private store: Store<AppState>
-  ) { }
 
-  ngOnInit(): void {
-    /*const userProfile = localStorage.getItem('user');
-    if (userProfile) {
-      this.store.dispatch(login({user: JSON.parse(userProfile) as User}));
-    }*/
+    constructor(
+        private _router: Router,
+        private _store: Store<AppState>,
+        private _authService: AuthService
+    ) {
+    }
 
-    this.isLoggedIn$ = this.store
-        .pipe(
-            select(isLoggedIn)
-        );
-    this.isLoggedOut$ = this.store
-        .pipe(
-          select(isLoggedOut)
-        );
-  }
+    ngAfterViewInit(): void {
+        this.user = this._authService.getCurrentUser();
+        this.firstName = this.user.firstName;
+    }
 
-  logout() {
-    this.store.dispatch(logout());
-  }
+    ngOnInit(): void {
+        /*this.isLoggedIn$ = this._store
+            .pipe(
+                select(isLoggedIn)
+            );
+        this.isLoggedOut$ = this._store
+            .pipe(
+                select(isLoggedOut)
+            );*/
+    }
+
+    logout() {
+        this._store.dispatch(logout());
+    }
 
 }

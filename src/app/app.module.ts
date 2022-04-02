@@ -13,32 +13,46 @@ import {HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
 import {metaReducers, reducers} from './reducers';
 import {AuthModule} from '@wazzabysama/auth/auth.module';
-import {RouterState, StoreRouterConnectingModule} from "@ngrx/router-store";
+import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
+import { AlertDialogBoxComponent } from './shared/dialog-box/alert-dialog-box/alert-dialog-box.component';
+import { MessageDialogBoxComponent } from './shared/dialog-box/message-dialog-box/message-dialog-box.component';
+import { LoadingSpinnerComponent } from './shared/loading/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoadingComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatProgressBarModule,
-    HttpClientModule,
-    AuthModule.forRoot(),
-    StoreModule.forRoot(reducers, { metaReducers }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([]),
-      StoreRouterConnectingModule.forRoot({
-        stateKey: 'router',
-        routerState: RouterState.Minimal
-      })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoadingComponent,
+        AlertDialogBoxComponent,
+        MessageDialogBoxComponent,
+        LoadingSpinnerComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatProgressBarModule,
+        HttpClientModule,
+        AuthModule.forRoot(),
+        StoreModule.forRoot(reducers, {
+            metaReducers,
+            runtimeChecks: {
+                strictStateImmutability: true,
+                strictActionImmutability: true,
+                //strictActionSerializability: true,
+                // strictStateSerializability: true
+            }
+        }),
+        StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+        EffectsModule.forRoot([]),
+        StoreRouterConnectingModule.forRoot({
+            stateKey: 'router',
+            routerState: RouterState.Minimal
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 
