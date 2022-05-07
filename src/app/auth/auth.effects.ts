@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {AuthActions} from '@wazzabysama/auth/action-types';
 import {tap} from 'rxjs/operators';
@@ -11,21 +11,23 @@ export class AuthEffects {
             this.actions$
                 .pipe(
                     ofType(AuthActions.login),
-                    tap(action => localStorage.setItem('user',
-                        JSON.stringify(action.user))
-                    )
+                    tap(action => {
+                        localStorage.setItem('user',
+                            JSON.stringify(action.user));
+                        this.router.navigateByUrl('/home');
+                    })
                 )
         ,
         {dispatch: false});
 
-    logout$ = createEffect(() =>  this.actions$
-        .pipe(
-            ofType(AuthActions.logout),
-            tap(action => {
-                localStorage.removeItem('user');
-                this.router.navigateByUrl('/connexion');
-            })
-        )
+    logout$ = createEffect(() => this.actions$
+            .pipe(
+                ofType(AuthActions.logout),
+                tap(action => {
+                    localStorage.removeItem('user');
+                    this.router.navigateByUrl('/connexion');
+                })
+            )
         ,
         {dispatch: false});
 

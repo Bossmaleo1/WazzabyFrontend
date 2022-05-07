@@ -9,9 +9,8 @@ import {AuthService} from '@wazzabysama/core/services/auth.service';
 import {PublicMessageDatasource} from '@wazzabysama/core/dataSource/public-message.datasource';
 import {PublicMessageService} from '@wazzabysama/core/services/public-message.service';
 import {PublicMessage} from '@wazzabysama/core/model/public-message.model';
-import {catchError, finalize, map} from "rxjs/operators";
-import {plainToClassFromExist} from "class-transformer";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {DateService} from '@wazzabysama/core/services/date.service';
 
 @Component({
     selector: 'wazzaby-home',
@@ -22,7 +21,6 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class HomeComponent implements OnInit, AfterViewInit {
 
     isLoggedIn$: Observable<boolean>;
-    //*ngIf="isLoggedOut$ | async"
     isLoggedOut$: Observable<boolean>;
     user: User;
     after = 'above';
@@ -38,7 +36,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         private _store: Store<AppState>,
         private _authService: AuthService,
         private _publicMessageService: PublicMessageService,
-        private _snackBar: MatSnackBar
+        private _snackBar: MatSnackBar,
+        private _dateService: DateService
     ) {}
 
     ngAfterViewInit(): void {}
@@ -56,8 +55,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this._store.dispatch(logout());
     }
 
+    /**
+     * @param images
+     */
     displayMessagePublicImage(images: {'@id': string, '@type': string, 'imageName': string}[]): string {
         return images.length > 0 ? images[0].imageName : 'ic_profile_colorier.png';
     }
 
+    displayPublicMessageDate(ourdate: string): string {
+        return this._dateService.displayPostDate(ourdate);
+    }
 }

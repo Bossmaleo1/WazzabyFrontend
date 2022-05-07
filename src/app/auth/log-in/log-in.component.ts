@@ -8,7 +8,7 @@ import {AppState} from '@wazzabysama/reducers';
 import {User} from '@wazzabysama/core/model/user.model';
 import {noop} from 'rxjs';
 import { login } from '../auth.actions';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -25,8 +25,6 @@ export class LogInComponent implements OnInit {
     ]],
     password: ['', [Validators.required]]
   });
-
-
 
   constructor(
       private fb: FormBuilder,
@@ -67,7 +65,6 @@ export class LogInComponent implements OnInit {
                     )
                 });
                 this.store.dispatch(newLoginAction);
-                this.router.navigateByUrl('/home');
             })
         ).subscribe(
             noop,

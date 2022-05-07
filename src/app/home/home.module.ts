@@ -12,8 +12,10 @@ import {MatRippleModule} from '@angular/material/core';
 import {PublicMessageModule} from '@wazzabysama/public-message/public-message.module';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatDividerModule} from "@angular/material/divider";
-import {MatCardModule} from "@angular/material/card";
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TokenInterceptor} from '@wazzabysama/core/interceptors/token-interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,9 @@ import {MatCardModule} from "@angular/material/card";
         ScrollingModule,
         MatDividerModule,
         MatCardModule
-    ]
+    ],
+    providers: [
+        {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+    ],
 })
 export class HomeModule { }

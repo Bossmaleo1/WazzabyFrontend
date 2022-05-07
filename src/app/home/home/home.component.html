@@ -34,7 +34,7 @@
             <mat-icon>help</mat-icon>
             <span>A propos</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="logout()">
             <mat-icon>power_settings_new</mat-icon>
             <span>Déconnexion</span>
         </button>
@@ -49,10 +49,10 @@
             <mat-card-header>
                 <div  mat-card-avatar
                       class="public_message-header-image"
-                      [ngStyle]="{'background-image': 'url(http://localhost:8000/images/'+displayMessagePublicImage(item?.user.images)+')'}">
+                      [ngStyle]="{'background-image': 'url(http://localhost:8000/images/'+displayMessagePublicImage(item.user.images)+')'}">
                 </div>
                 <mat-card-title>{{item.user.firstName}}&nbsp;&nbsp;{{item.user.lastName}}</mat-card-title>
-                <mat-card-subtitle>{{item.published}}</mat-card-subtitle>
+                <mat-card-subtitle>{{displayPublicMessageDate(item.published)}}</mat-card-subtitle>
             </mat-card-header>
             <img *ngIf="item.images.length  > 0" mat-card-image src="" alt="Photo of message public">
             <mat-card-content>
@@ -98,23 +98,9 @@
         </mat-card>
     </div>
 
-    <div>
+    <div *ngIf="dataSourcePublicMessage.loading$ | async" class="container-spinner">
         <mat-spinner></mat-spinner>
     </div>
-
-    <!--wazzaby-public-message *cdkVirtualFor="let item of publicMessages"
-            [firstName]="item.content" [lastName]="item['content']"
-        >
-
-    </wazzaby-public-message-->
-    <!--div *cdkVirtualFor="let item of dataSourcePublicMessage">
-
-    </div-->
-
-    <!--div *ngIf="dataSourcePublicMessage.loading$ | async">
-        <mat-spinner></mat-spinner>
-    </div-->
-    <!--/div-->
 </cdk-virtual-scroll-viewport>
 
 
