@@ -1,44 +1,120 @@
-<mat-toolbar color="primary">
-    <div matRipple class="icon-block"  matTooltip="Cliquez ici pour consulter votre profil">
-        <img   src=""/>
+<mat-toolbar class="toolbar-style-light">
+    <div matRipple class="icon-block">
+        <img class="icon-picture-photo" src="{{userUrlImage}}" alt="maleo maleo"/>
     </div>
-    <button mat-button  matTooltip="Cliquez ici pour consulter votre profil">
-        <span> MALEO {{firstName}} </span>
+    <button mat-button>
+        <span> {{user['_firstName']}} {{user['_lastName']}} </span>
     </button>
 
-    <span class="example-spacer"></span>
+    <span class="toolbar-spacer"></span>
 
-    <button mat-icon-button >
+    <button mat-icon-button>
         <mat-icon matBadgeColor="warn" matBadge="2">notifications</mat-icon>
     </button>
-    <button mat-icon-button [matMenuTriggerFor]="menu" >
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
     </button>
 
-    <mat-menu #menu="matMenu" >
-        <button mat-menu-item >
+    <mat-menu #menu="matMenu" class="menu-item-light-theme-class">
+        <button mat-menu-item>
             <mat-icon>account_circle</mat-icon>
             <span>Profil</span>
         </button>
 
-        <button mat-menu-item >
-            <mat-icon >history</mat-icon>
+        <button mat-menu-item>
+            <mat-icon>history</mat-icon>
             <span>Historique</span>
         </button>
 
-        <button mat-menu-item disabled >
+        <button mat-menu-item>
             <mat-icon>settings</mat-icon>
             <span>Paramètres</span>
         </button>
-        <button mat-menu-item disabled>
-            <mat-icon >help</mat-icon>
+        <button mat-menu-item>
+            <mat-icon>help</mat-icon>
             <span>A propos</span>
         </button>
-        <button mat-menu-item >
+        <button mat-menu-item>
             <mat-icon>power_settings_new</mat-icon>
-            <span>Deconnexion</span>
+            <span>Déconnexion</span>
         </button>
     </mat-menu>
 
 
 </mat-toolbar>
+
+<cdk-virtual-scroll-viewport appendOnly itemSize="50" class="public-message-viewport">
+    <div *cdkVirtualFor="let item of dataSourcePublicMessage">
+        <mat-card class="public-message-card" *ngIf="item">
+            <mat-card-header>
+                <div  mat-card-avatar
+                      class="public_message-header-image"
+                      [ngStyle]="{'background-image': 'url(http://localhost:8000/images/'+displayMessagePublicImage(item?.user.images)+')'}">
+                </div>
+                <mat-card-title>{{item.user.firstName}}&nbsp;&nbsp;{{item.user.lastName}}</mat-card-title>
+                <mat-card-subtitle>{{item.published}}</mat-card-subtitle>
+            </mat-card-header>
+            <img *ngIf="item.images.length  > 0" mat-card-image src="" alt="Photo of message public">
+            <mat-card-content>
+                {{item.content}}
+            </mat-card-content>
+            <mat-card-actions>
+                <mat-divider></mat-divider>
+                <button mat-button matTooltip="Cliquez ici pour commenter">
+                    <mat-icon>add_comment</mat-icon>
+                    <span> 2 Interventions</span>
+                </button>
+                <button mat-button matTooltip="J'aime ce contenu">
+                    <mat-icon>thumb_up</mat-icon>
+                    <span> Aimer</span>
+                </button>
+                <button mat-button matTooltip="Je n'aime pas ce contenu">
+                    <mat-icon>thumb_down</mat-icon>
+                    <span> Ne pas Aimer </span>
+                </button>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>arrow_drop_down_circle</mat-icon>
+                </button>
+
+                <mat-menu #menu="matMenu">
+
+                    <button mat-menu-item>
+                        <mat-icon>edit</mat-icon>
+                        <span>Modifier ce poste</span>
+                    </button>
+
+                    <button mat-menu-item>
+                        <mat-icon>delete</mat-icon>
+                        <span>Supprimer ce poste</span>
+                    </button>
+
+                    <button mat-menu-item>
+                        <mat-icon>flag</mat-icon>
+                        <span>Signaler un probleme</span>
+                    </button>
+                </mat-menu>
+                <mat-divider></mat-divider>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <div>
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <!--wazzaby-public-message *cdkVirtualFor="let item of publicMessages"
+            [firstName]="item.content" [lastName]="item['content']"
+        >
+
+    </wazzaby-public-message-->
+    <!--div *cdkVirtualFor="let item of dataSourcePublicMessage">
+
+    </div-->
+
+    <!--div *ngIf="dataSourcePublicMessage.loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div-->
+    <!--/div-->
+</cdk-virtual-scroll-viewport>
+
+

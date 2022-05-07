@@ -1,14 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { PublicMessageRoutingModule } from './public-message-routing.module';
+import { PublicMessageComponent } from './public-message/public-message.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PublicMessageComponent
+  ],
+  exports: [
+    PublicMessageComponent
+  ],
   imports: [
-    CommonModule,
-    PublicMessageRoutingModule
+    MatCardModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatMenuModule
   ]
 })
 export class PublicMessageModule { }

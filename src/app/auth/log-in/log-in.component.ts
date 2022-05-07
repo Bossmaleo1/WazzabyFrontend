@@ -8,6 +8,7 @@ import {AppState} from '@wazzabysama/reducers';
 import {User} from '@wazzabysama/core/model/user.model';
 import {noop} from 'rxjs';
 import { login } from '../auth.actions';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -31,7 +32,8 @@ export class LogInComponent implements OnInit {
       private fb: FormBuilder,
       private auth: AuthService,
       private router: Router,
-      private store: Store<AppState>
+      private store: Store<AppState>,
+      private _snackBar: MatSnackBar
   ) {
 
   }
@@ -69,7 +71,9 @@ export class LogInComponent implements OnInit {
             })
         ).subscribe(
             noop,
-        () => alert('Login Failed')
+        () =>  {
+            this._snackBar.open("request failed", "action");
+        }
         );
   }
 

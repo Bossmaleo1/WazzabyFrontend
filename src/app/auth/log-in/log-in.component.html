@@ -1,9 +1,5 @@
-<div class="connexion">
+<div class="  connexion">
     <mat-card class="block-connexion-card">
-        <!--mat-card-header>
-            <div class="title">
-            </div>
-        </mat-card-header-->
 
         <mat-card-content>
             <form [formGroup]="form">
@@ -20,9 +16,9 @@
                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </mat-form-field>
                 <br/>
-                <button mat-raised-button type='submit' color="primary" class="form-field-full-width"
-                        (click)="login()"
-                        [disabled]="!form.valid">CONNEXION
+                <button mat-button type='submit' class="form-field-full-width"
+                        (click)="login()">
+                    CONNEXION
                 </button>
             </form>
         </mat-card-content>
@@ -30,8 +26,8 @@
         <mat-card-actions>
             <mat-divider></mat-divider>
             <div class="connexion-form">
-                <button mat-button color="primary" i18n="@@inscription">Register</button>
-                <button mat-button color="primary" i18n="@@passwordForget">Password Forget ?</button>
+                <button mat-button i18n="@@inscription">Register</button>
+                <button mat-button i18n="@@passwordForget">Password Forget ?</button>
             </div>
         </mat-card-actions>
 

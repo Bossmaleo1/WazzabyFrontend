@@ -1,5 +1,6 @@
 import {Problematic} from '@wazzabysama/core/model/problematic.model';
-import {Expose, Type} from "class-transformer";
+import {Expose, Type} from 'class-transformer';
+import {Image} from '@wazzabysama/core/model/image.model';
 
 /**
  * Created by MALEO-SAMA 27-03-2022
@@ -12,7 +13,7 @@ export class User {
     private _firstName: string;
     private _lastName: string;
     private _token: string;
-    private _images: [string];
+    private _images: [Image];
     private _roles: [string];
     private _problematic: Problematic;
 
@@ -24,7 +25,7 @@ export class User {
         firstName: string,
         lastName: string,
         token: string,
-        images: [string],
+        images: [Image],
         roles: [string],
         problematic: Problematic
     ) {
@@ -111,11 +112,11 @@ export class User {
         this._problematic = value;
     }
 
-    get images(): [string] {
+    get images(): [Image] {
         return this._images;
     }
 
-    set images(value: [string]) {
+    set images(value: [Image]) {
         this._images = value;
     }
 }

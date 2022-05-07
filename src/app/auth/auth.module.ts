@@ -17,6 +17,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {AuthEffects} from '@wazzabysama/auth/auth.effects';
 import {AuthService} from '@wazzabysama/core/services/auth.service';
 import {AuthGuard} from '@wazzabysama/auth/auth.guard';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {AuthGuard} from '@wazzabysama/auth/auth.guard';
     MatInputModule,
     MatIconModule,
     MatDividerModule,
+    MatSnackBarModule,
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([AuthEffects])
   ]

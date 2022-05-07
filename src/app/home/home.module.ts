@@ -9,21 +9,31 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatRippleModule} from '@angular/material/core';
+import {PublicMessageModule} from '@wazzabysama/public-message/public-message.module';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
     HomeComponent
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatButtonModule,
-    MatIconModule,
-    MatBadgeModule,
-    MatMenuModule,
-    MatRippleModule
-  ]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        MatButtonModule,
+        MatIconModule,
+        MatBadgeModule,
+        MatMenuModule,
+        MatProgressSpinnerModule,
+        MatRippleModule,
+        PublicMessageModule,
+        ScrollingModule,
+        MatDividerModule,
+        MatCardModule
+    ]
 })
 export class HomeModule { }

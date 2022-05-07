@@ -24,7 +24,7 @@ export class AuthService {
     getAccessToken(): string {
         return (JSON.parse(
             localStorage.getItem('user')
-        ) as User).token;
+        ) as User)['_token'];
     }
 
     getCurrentUser(): User {
