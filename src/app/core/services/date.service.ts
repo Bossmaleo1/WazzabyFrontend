@@ -13,7 +13,17 @@ export class DateService {
   }
 
   displayPostDate(ourdate: string): string {
-      const date = new Date(ourdate);
+      /*const date = new Date(ourdate);
+      const currentDate = new Date();
+      if (date.getFullYear() === currentDate.getFullYear()) {
+          if ( currentDate.getMonth() > date.getMonth()) {
+              return moment(new Date(ourdate)).locale(this.locale).startOf('hour').fromNow();
+          }
+      } else if (currentDate.getFullYear() > date.getFullYear()) {
+
+      }*/
+      /*console.log(date.getFullYear());
+      console.log(currentDate.getFullYear());*/
       return moment(new Date(ourdate)).locale(this.locale).startOf('hour').fromNow();
   }
 }

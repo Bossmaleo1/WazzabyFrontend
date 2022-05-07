@@ -46,6 +46,7 @@ import { LoadingSpinnerComponent } from './shared/loading/loading-spinner/loadin
         }),
         StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
         EffectsModule.forRoot([]),
+       // EntityDataModule.forRoot()
         StoreRouterConnectingModule.forRoot({
             stateKey: 'router',
             routerState: RouterState.Minimal
