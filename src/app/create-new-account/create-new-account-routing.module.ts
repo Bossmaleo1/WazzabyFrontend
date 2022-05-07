@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {LogInComponent} from '@app/create-new-account/LogIn/log-in.component';
+import { EmailFormComponent } from './email-form/email-form.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LogInComponent
+    component: EmailFormComponent
   }
 ];
 

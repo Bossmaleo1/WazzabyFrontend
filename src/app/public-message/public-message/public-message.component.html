@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>MALEO</mat-card-title>
+        <mat-card-subtitle>MALEO-Sama</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="" alt="Photo of message public">
+    <mat-card-content>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-divider></mat-divider>
+        <button mat-button matTooltip="Cliquez ici pour commenter">
+            <mat-icon>add_comment</mat-icon>
+            <span> 2 Interventions</span>
+        </button>
+        <button mat-button matTooltip="J'aime ce contenu">
+            <mat-icon>thumb_up</mat-icon>
+            <span>Aimer</span>
+        </button>
+        <button mat-button matTooltip="Je n'aime pas ce contenu">
+            <mat-icon>thumb_down</mat-icon>
+            <span> MALEO </span>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>arrow_drop_down_circle</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+
+            <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Modifier ce poste</span>
+            </button>
+
+            <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Supprimer ce poste</span>
+            </button>
+
+            <button mat-menu-item>
+                <mat-icon>flag</mat-icon>
+                <span>Signaler un probleme</span>
+            </button>
+        </mat-menu>
+        <mat-divider></mat-divider>
+    </mat-card-actions>
+</mat-card>

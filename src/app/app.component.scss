@@ -1,0 +1,17 @@
+.dark-theme-background-class {
+  height: 100%;
+  //background-color: #212121;
+  background-color: #000000;
+}
+
+.light-theme-background-class {
+  height: 100%;
+  background-color: #EEEEEE;
+}
+
+:host ::ng-deep .unicorn-light-theme .mat-toolbar {
+  background-color: white !important;
+  color: black;
+}
+
+
