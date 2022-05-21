@@ -1,0 +1,42 @@
+<mat-toolbar class="toolbar-style toolbar-style-light">
+    <div matRipple class="icon-block">
+        <img class="icon-picture-photo" src="{{userUrlImage}}" alt="maleo maleo"/>
+    </div>
+    <button mat-button>
+        <span> {{user['_firstName']}} {{user['_lastName']}} </span>
+    </button>
+
+    <span class="toolbar-spacer"></span>
+
+    <button mat-icon-button>
+        <mat-icon matBadgeColor="warn" matBadge="2">notifications</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu" class="menu-item-light-theme-class">
+        <button mat-menu-item>
+            <mat-icon>account_circle</mat-icon>
+            <span>Profil</span>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>history</mat-icon>
+            <span>Historique</span>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Paramètres</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>help</mat-icon>
+            <span>A propos</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>
+            <span>Déconnexion</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>

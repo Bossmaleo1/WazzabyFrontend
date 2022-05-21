@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home/home.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HomeRoutingModule} from './home-routing.module';
+import {HomeComponent} from './home/home.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
@@ -16,11 +16,13 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptor} from '@wazzabysama/core/interceptors/token-interceptor/token.interceptor';
+import {ToolbarComponent} from './toolbar/toolbar.component';
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+    declarations: [
+        HomeComponent,
+        ToolbarComponent
+    ],
     imports: [
         CommonModule,
         HomeRoutingModule,
@@ -41,4 +43,5 @@ import {TokenInterceptor} from '@wazzabysama/core/interceptors/token-interceptor
         {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
     ],
 })
-export class HomeModule { }
+export class HomeModule {
+}
